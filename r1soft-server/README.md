@@ -12,7 +12,7 @@ once machine created edit inboud rules for security_groupe
 
 port # http  8080
 port # https 8443
-(temporary) r1soft1:     ami-05076597a0fd2621f
+(temporary) r1soft1:  ami-05076597a0fd2621f
 
 
 
