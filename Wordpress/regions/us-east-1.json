@@ -1,9 +1,9 @@
 {
     "region": "us-east-1",
-    "source_ami": "ami-0c2b8ca1dad447f8a",
+    "source_ami": "ami-09e67e426f25ce0d7",
     "ssh_username": "ec2-user",
     "ssh_keypair_name": "bastion-project1-key",
     "ssh_private_key_file": "/home/ec2-user/.ssh/id_rsa",
     "ami_name": "packer-wordpress",
-    "instance_type": "m5.large"
+    "instance_type": "c5.large"
 }
