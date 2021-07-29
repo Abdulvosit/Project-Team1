@@ -1,32 +1,19 @@
-#!/bin/bash
-sudo yum -y install python-simplejson     # Install PHP latest version
-sudo yum update                           # System wide upgrade
-sudo yum install -y default-jre           # Install Java (just to be safe)
-sudo yum install httpd     
-
-sudo systemctl start httpd
-
-sudo yum -y install php php-mysql
-sudo systemctl restart httpd
-
-sudo su -c 'echo "<? php phpinfo() ?>" > /var/www/html/test.php'
-
-sudo yum -y install mysql-server
-
-sudo systemctl start mysql
-sudo mysqladmin -u root create blog
-sudo mysql_secure_installation
-
-sudo yum install wget -y
-sudo cd /tmp/www/html
-sudo wget http://wordpress.org/latest.tar.gz
-sudo tar -xzvf latest.tar.gz
-sudo mv wordpress blog
-
-sudo cd blog
-sudo mv wp-config-sample.php wp-config.php
-sudo su -c 'echo "
-define(‘DB_NAME’, ‘blog’);
-define(‘DB_USER’, ‘root’);
-define(‘DB_PASSWORD’, ‘wordpress’);
-define(‘DB_HOST’, ‘localhost’);" > wp-config.php'
+#!/bin/bash 
+sudo yum install httpd -y 
+sudo yum install epel-release -y 
+sudo yum  install https://rpms.remirepo.net/enterprise/remi-release-7.rpm -y 
+sudo yum-config-manager --enable remi-php74 
+sudo yum install php -y 
+sudo systemctl restart httpd 
+sudo systemctl enable httpd 
+sudo yum install wget -y 
+sudo wget https://wordpress.org/latest.tar.gz 
+sudo tar -xf latest.tar.gz -C /var/www/html/ 
+sudo mv /var/www/html/wordpress/* /var/www/html/ 
+sudo yum install php-mysql -y 
+sudo systemctl restart httpd 
+sudo getenforce 
+sudo sed 's/SELINUX=permissive/SELINUX=enforcing/g' /etc/sysconfig/selinux -i 
+sudo setenforce 0 
+sudo chown -R apache:apache /var/www/html/ 
+sudo systemctl restart httpd 
