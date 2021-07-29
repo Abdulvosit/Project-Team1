@@ -1,6 +1,7 @@
 #!/bin/bash 
 sudo yum install httpd -y 
 sudo yum install epel-release -y 
+sudo yum install -y
 sudo yum  install https://rpms.remirepo.net/enterprise/remi-release-7.rpm -y 
 sudo yum-config-manager --enable remi-php74 
 sudo yum install php -y 
