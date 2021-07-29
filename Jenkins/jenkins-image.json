@@ -1,0 +1,35 @@
+{
+    "builders": [{
+        "type": "amazon-ebs",
+        "region": "{{user `region`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "instance_type": "{{user `instance_type`}}",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ssh_keypair_name": "{{user `ssh_keypair_name`}}",
+        "ssh_private_key_file": "{{user `ssh_private_key_file`}}",
+        "ami_name": "{{user `ami_name`}}{{timestamp}}"
+    }],
+    "provisioners": [
+    {
+    "type": "shell",
+        "inline": [
+          "sudo yum update -y"
+        ]
+    },
+    {
+        "type": "shell",
+        "script": "resources/jenkins.sh"
+    },
+    {
+        "type": "shell",
+        "inline": [
+            "curl -O https://inspector-agent.amazonaws.com/linux/latest/install",
+            "sudo bash install"
+          ]
+    },
+    {
+    "type": "breakpoint",
+    "note": "Wait for you to delete"
+    }
+    ]
+}
