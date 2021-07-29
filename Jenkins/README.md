@@ -1,27 +1,15 @@
-############# Project1 #############
-Using packer build the following AMIs
-1. jenkins
-    a. OS is upto date
-    b. version of jenkins is interpolated from vars file along with java version
+This code creates an ami for Jenkins
 
-2. R1soft server.
-    a. OS is upto date
+please change the keypair and ami name in the us-east-1.json file and other regions too 
 
-3. Wordpress
-    a. OS is upto date
-    b. php, mysql, wordpress should compatible. When building
-    this image keep in mind, you will be asked to rebuild again in 2 month.
-    Put as many variables as possible so we can customize in the future
+Run the following commands after updating the code:
 
-Document the steps so you can onboard other engineers quickly.
+packer validate -var-file regions/us-east-1.json jenkins-image.json
+packer build -var-file regions/us-east-1.json jenkins-image.json
 
-Please install awsagent so we can run aws inspector assessments
+once machine created edit inboud rules for security_groupe
 
-Installation of the amazon agent
-curl -O https://inspector-agent.amazonaws.com/linux/latest/install
-bash install
-https://docs.aws.amazon.com/inspector/latest/userguide/inspector_installing-uninstalling-agents.html
-Verification: systemctl status awsagent
+port # http 8080
 
-Team1 has to build mariadb server and give it to Team3.
-Make sure mariadb is up and running when they build ASG
+(temporary) jenkins1 ami-0213dfa01ac82808c
+
