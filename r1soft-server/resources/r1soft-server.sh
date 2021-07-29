@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo su -c 'echo "[r1soft]
 name=R1Soft Repository Server
-baseurl=http://repo.r1soft.com/yum/stable/$basearch/
+baseurl=http://repo.r1soft.com/yum/stable/x86_64/
 enabled=1
 gpgcheck=0 " > /etc/yum.repos.d/r1soft.repo'
 
