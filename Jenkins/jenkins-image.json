@@ -10,23 +10,28 @@
         "ami_name": "{{user `ami_name`}}{{timestamp}}"
     }],
     "provisioners": [
+    
     {
     "type": "shell",
         "inline": [
           "sudo yum update -y"
         ]
     },
+     
     {
         "type": "shell",
         "script": "resources/jenkins.sh"
     },
+    
     {
         "type": "shell",
         "inline": [
             "curl -O https://inspector-agent.amazonaws.com/linux/latest/install",
-            "sudo bash install"
+            "sudo bash install",
+            "systemctl status awsagent"
           ]
     },
+    
     {
     "type": "breakpoint",
     "note": "Wait for you to delete"
