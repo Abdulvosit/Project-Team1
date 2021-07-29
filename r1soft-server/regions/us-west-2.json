@@ -5,5 +5,5 @@
     "ssh_keypair_name": "bastion-project1-key",
     "ssh_private_key_file": "/home/ec2-user/.ssh/id_rsa",
     "ami_name": "packer-jenkins",
-    "instance_type": "t2.micro"
+    "instance_type": "t2.medium"
 }
