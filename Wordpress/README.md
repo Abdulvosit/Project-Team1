@@ -12,11 +12,10 @@
 
 * Once machine created edit inboud rules for security_groupe to 0.0.0.0/0
 
-  * port #  3306  >  mariadb 
-  * port #  8080  >  wordpress 
-  * port #  80    >  php/apache
+  * port #  443   >  https
+  * port #  80    >  http
 
-* wordpress:  ami-  (temporary) 
+* wordpress:  ami-038d8484c16f65923 (temporary) 
 
 
 
