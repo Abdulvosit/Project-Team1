@@ -17,3 +17,5 @@
 * Document the steps so you can onboard other engineers quickly.
 
 * Please install awsagent so we can run aws inspector assessments
+
+* Refer to each task readme.md file for more instructions on how to build each machine.
